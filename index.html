@@ -51,7 +51,6 @@
     </style>
 </head>
 <body class="h-full text-slate-800 bg-slate-50 flex flex-col font-sans selection:bg-slate-200">
-
     <div class="min-h-full flex flex-col lg:flex-row">
         <!-- Sidebar Navigation -->
         <aside class="w-full lg:w-64 bg-slate-900 text-slate-300 flex-shrink-0 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-800">
@@ -90,7 +89,7 @@
                 </div>
                 <div class="flex items-center justify-between text-slate-300">
                     <span class="text-slate-400">Master Nodes</span>
-                    <span id="sidebar-accounts-count" class="font-mono bg-slate-700 px-2 py-0.5 rounded text-white font-semibold">12 Active</span>
+                    <span id="sidebar-accounts-count" class="font-mono bg-slate-700 px-2 py-0.5 rounded text-white font-semibold">15 Active</span>
                 </div>
             </div>
         </aside>
@@ -102,7 +101,7 @@
                 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
                     <div>
                         <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight">Subject Line & Delivery Monitor</h2>
-                        <p class="text-xs sm:text-sm text-slate-500 mt-1">Scan last 3 subjects across <span id="header-accounts-count" class="font-semibold text-slate-700">12</span> accounts with precise delivery timestamps in seconds.</p>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-1">Scan last 3 subjects across <span id="header-accounts-count" class="font-semibold text-slate-700">15</span> accounts with precise delivery timestamps in seconds.</p>
                     </div>
                     <div id="active-mode-badge" class="self-start sm:self-auto px-3.5 py-1.5 rounded-full bg-slate-200 text-slate-700 text-xs font-semibold flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-slate-500"></span> Idle / Ready
@@ -122,26 +121,21 @@
                                 </label>
                                 <span class="text-[11px] text-slate-400 font-medium">One per line</span>
                             </div>
-                            <textarea id="domain-input" 
+                            <textarea id="domain-input"
                                 class="w-full h-28 sm:h-32 bg-slate-50 border border-slate-200 rounded-xl p-3 sm:p-4 text-slate-800 font-mono text-xs sm:text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all resize-none"
                                 placeholder="example-sender.com&#10;delivery-node.net"></textarea>
                         </div>
 
                         <!-- Action Controls -->
                         <div class="flex flex-col sm:flex-row lg:flex-col justify-end gap-2.5 sm:gap-3">
-                            <!-- Check Inbox Button -->
                             <button id="btn-check-inbox" type="button" class="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white font-semibold rounded-xl text-xs sm:text-sm transition-all shadow-sm flex items-center justify-center gap-2.5">
                                 <i class="fa-solid fa-inbox text-sm sm:text-base"></i>
                                 <span>Check Inbox</span>
                             </button>
-
-                            <!-- Check Spam Button -->
                             <button id="btn-check-spam" type="button" class="w-full py-3 px-4 bg-amber-600 hover:bg-amber-700 active:bg-amber-800 text-white font-semibold rounded-xl text-xs sm:text-sm transition-all shadow-sm flex items-center justify-center gap-2.5">
                                 <i class="fa-solid fa-triangle-exclamation text-sm sm:text-base"></i>
                                 <span>Check Spam</span>
                             </button>
-
-                            <!-- Clear Workspace Button -->
                             <button id="btn-clear" type="button" class="w-full py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-600 font-medium rounded-xl text-xs transition-all flex items-center justify-center gap-2">
                                 <i class="fa-solid fa-rotate-left"></i>
                                 <span>Reset Inputs</span>
@@ -155,7 +149,6 @@
             <section id="common-section" class="hidden mb-6 sm:mb-8 animate-fade-in">
                 <div class="bg-white rounded-2xl border border-slate-200 p-4 sm:p-6 shadow-sm space-y-6">
                     <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 sm:gap-6">
-                        <!-- Top Identified Subject Input & Copy -->
                         <div class="flex-1">
                             <label class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-2">
                                 Primary Identified Subject Line
@@ -171,7 +164,6 @@
                             </div>
                         </div>
 
-                        <!-- Match Convergence Rate Metric -->
                         <div class="w-full md:w-64 bg-slate-50 p-3.5 sm:p-4 rounded-xl border border-slate-200 flex flex-col justify-between">
                             <div class="flex items-center justify-between mb-2">
                                 <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Top Match Convergence</span>
@@ -192,9 +184,7 @@
                             <span id="inbox-subjects-count" class="text-[11px] font-mono text-slate-400 font-medium">0 unique subjects</span>
                         </div>
                         <div class="bg-slate-50/70 border border-slate-200/80 rounded-xl overflow-hidden">
-                            <div id="inbox-subjects-list" class="divide-y divide-slate-200/70 text-xs">
-                                <!-- Dynamic Inbox Subject Breakdown -->
-                            </div>
+                            <div id="inbox-subjects-list" class="divide-y divide-slate-200/70 text-xs"></div>
                         </div>
                     </div>
 
@@ -220,7 +210,6 @@
             <!-- Results Feed Table Card -->
             <section class="mb-10">
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden min-h-[350px] flex flex-col">
-                    <!-- Feed Table Header -->
                     <div class="px-4 sm:px-6 py-3.5 sm:py-4 border-b border-slate-200 bg-slate-50/50 flex flex-wrap items-center justify-between gap-3">
                         <div class="flex items-center gap-3">
                             <h3 class="font-bold text-slate-900 text-xs sm:text-sm tracking-tight uppercase">Account Feed & Subject Analysis</h3>
@@ -233,7 +222,6 @@
                         </div>
                     </div>
 
-                    <!-- Empty State -->
                     <div id="empty-state" class="flex-1 flex flex-col items-center justify-center p-8 sm:p-12 text-center">
                         <div class="w-12 h-12 sm:w-16 sm:h-16 bg-slate-100 rounded-2xl flex items-center justify-center mb-4 text-slate-400">
                             <i class="fa-solid fa-inbox text-xl sm:text-2xl"></i>
@@ -242,7 +230,6 @@
                         <p class="text-xs text-slate-400 max-w-sm">Enter target domains above and click <strong>Check Inbox</strong> or <strong>Check Spam</strong> to inspect subject lines and delivery times.</p>
                     </div>
 
-                    <!-- Mobile-Optimized Table Container -->
                     <div id="results-table-container" class="hidden flex-1 overflow-x-auto custom-scrollbar">
                         <table class="w-full text-left border-collapse">
                             <thead class="hidden sm:table-header-group">
@@ -253,9 +240,7 @@
                                     <th class="px-6 py-3.5 text-right">Status</th>
                                 </tr>
                             </thead>
-                            <tbody id="results-body" class="divide-y divide-slate-200 sm:divide-slate-100 text-xs sm:text-sm">
-                                <!-- Dynamic rows inserted via JS -->
-                            </tbody>
+                            <tbody id="results-body" class="divide-y divide-slate-200 sm:divide-slate-100 text-xs sm:text-sm"></tbody>
                         </table>
                     </div>
                 </div>
@@ -266,7 +251,6 @@
     <!-- Safe Mail Preview Modal -->
     <div id="preview-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/40 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
         <div class="bg-white border border-slate-200 w-full max-w-4xl rounded-2xl shadow-xl overflow-hidden flex flex-col max-h-[90vh] sm:max-h-[85vh]">
-            <!-- Modal Header -->
             <div class="px-4 sm:px-6 py-3.5 sm:py-4 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
                 <div>
                     <span class="text-[10px] bg-indigo-50 text-indigo-700 border border-indigo-200 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Node Audit</span>
@@ -276,7 +260,6 @@
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-            <!-- Modal Metadata Header -->
             <div class="px-4 sm:px-6 py-3 bg-slate-50/50 border-b border-slate-100 flex flex-wrap gap-2.5 sm:gap-4 items-center text-[11px] sm:text-xs text-slate-600 font-medium">
                 <div>
                     <span class="text-slate-400">Account:</span>
@@ -293,7 +276,6 @@
                     <span id="modal-seconds-ago" class="font-mono text-indigo-600 font-bold">120 seconds ago</span>
                 </div>
             </div>
-            <!-- Modal Body Sandbox Viewport -->
             <div class="flex-1 overflow-y-auto p-4 sm:p-6 bg-slate-100/50 relative min-h-[280px] sm:min-h-[350px]">
                 <div id="modal-body-fallback" class="hidden text-slate-800 whitespace-pre-wrap leading-relaxed font-mono text-xs bg-white p-4 sm:p-5 rounded-xl border border-slate-200"></div>
                 <iframe id="modal-body-frame" class="w-full h-full min-h-[300px] sm:min-h-[380px] border border-slate-200 rounded-xl bg-white hidden" sandbox="allow-same-origin"></iframe>
@@ -314,13 +296,10 @@
 
     <script>
         const CONFIG = {
-            // Default credentials used across accounts
             defaultClientId: "128820302240-k7bk8mui4lr16gvonbqb7qn76o9rgd1q.apps.googleusercontent.com",
             defaultClientSecret: "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",
-            
-            // Accounts array: specify custom clientId/clientSecret per account if needed
             accounts: [
-               { name: "ashwinliveseedforall", type: "Opener", token: "1//0gub_tDUPkLESCgYIARAAGBASNwF-L9IrVdFJ0uMmaXYM4AG01a6r7Zpo3uDchB7DNXW0Rkt4oDojH3-9HCrZX5tr8uDFmABRRY0" },
+                { name: "ashwinliveseedforall", type: "Opener", token: "1//0gub_tDUPkLESCgYIARAAGBASNwF-L9IrVdFJ0uMmaXYM4AG01a6r7Zpo3uDchB7DNXW0Rkt4oDojH3-9HCrZX5tr8uDFmABRRY0" },
                 { name: "asharyaliveseedacc", type: "Opener", token: "1//0guqANvb_X5K3CgYIARAAGBASNwF-L9IrqODXDbSdAtPz7GznJrXl0HXkUbcKQ9yqWwda563DfGtAbc8MlFkDZuja-SzHMG7WkXk" },
                 { name: "liveseedsformm", type: "Opener", token: "1//0gj4AZbhLjWK0CgYIARAAGBASNwF-L9IrKfhgpAfv-20pn5NC72ByHJS-b17sGCNrkV3vTDkiVGV98aGbwn32IKXhx97d0X-KHeg" },
                 { name: "arcsann6767", type: "Opener", token: "1//0gbQkQjqB6dmFCgYIARAAGBASNwF-L9IroUxKSF0oSj2t_9L9l7Bk7inNEepzhDA-DLrpVngouFHoyGl__nEp3OD-2SlbxAofEdM" },
@@ -330,30 +309,29 @@
                 { name: "muskansharma90", type: "Opener", token: "1//0gPq37jtx0_0KCgYIARAAGBASNwF-L9IreaaDx20paQujuIoTUk67NYt2pD9caOBJvffab3il9PtvL4GEYKYOFdffiWpxLTh6oeU" },
                 { name: "ashwinaryaop", type: "Non-Opener", token: "1//0gVEsWZHhysDiCgYIARAAGBASNwF-L9Ir1VA8Wq2OqrP4NB6DBnNAM64bLqlW05jn1p9BXNcgLg6On-w_wa8AS4nVi3P6kaWAYMI" },
                 { name: "satyam414424", type: "Non-Opener", token: "1//0gumKB5PJdWMECgYIARAAGBASNwF-L9IrMUECWwvnDe-zMU4Y6-zLFZPQx3LGZNMCE-6sJ2qzwLa6ZBR9T0L3nw8p__rwRYUPiVM" },
-               { name: "agarwalkartik311", token: "1//0gMBZg-3tRBLsCgYIARAAGBASNwF-L9IrZrkLNFyCwPO1uVFbfDkWuZRHJVEkFeW_LH8RoWB8bgDNcj9Jck-_itXNKL_MYqn51K0" },
-             { name: "ashwin.mavericksmedia", token: "1//0ghFlwp963PsqCgYIARAAGBASNwF-L9IrfCKuOqQg8xqQz3BAvXnxnA5wVuHEvUB89gbDgcLr3eo7p13S61n3lPsvj47lWN5Hm7E" },
-                  { 
-                    name: "ashwinaryanono", 
-                    type: "Non-Opener", 
+                { name: "agarwalkartik311", token: "1//0gMBZg-3tRBLsCgYIARAAGBASNwF-L9IrZrkLNFyCwPO1uVFbfDkWuZRHJVEkFeW_LH8RoWB8bgDNcj9Jck-_itXNKL_MYqn51K0" },
+                { name: "ashwin.mavericksmedia", token: "1//0ghFlwp963PsqCgYIARAAGBASNwF-L9IrfCKuOqQg8xqQz3BAvXnxnA5wVuHEvUB89gbDgcLr3eo7p13S61n3lPsvj47lWN5Hm7E" },
+                {
+                    name: "ashwinaryanono",
+                    type: "Non-Opener",
                     token: "1//0g6qv3E3pprRyCgYIARAAGBASNwF-L9Ir2_X7lmQnuoPgkTHwSKCYGk3Lvy-rKCUXmBhOQL2uG6B-YojzqSmFiCVyJp0vNBfoq6c",
                     clientId: "707901165841-938emg3s0i65g4j1nebqqf33kr65rblp.apps.googleusercontent.com",
                     clientSecret: "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"
-                }
-              { 
-                    name: "iconicnonop", 
-                    type: "Non-Opener", 
+                },
+                {
+                    name: "iconicnonop",
+                    type: "Non-Opener",
                     token: "1//0gcPHUn6pfQQtCgYIARAAGBASNwF-L9IrVRZKGX12dphwalrZvJG2C4R1z_KoKmgHjQo-5cL59wAicRLhPT1tds1TzWo0WzXgWDw",
                     clientId: "707901165841-938emg3s0i65g4j1nebqqf33kr65rblp.apps.googleusercontent.com",
                     clientSecret: "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"
-                }
-      { 
-                    name: "vishushandilya928", 
-                    type: "Non-Opener", 
+                },
+                {
+                    name: "vishushandilya928",
+                    type: "Non-Opener",
                     token: "1//0g7kIIIPaTyFrCgYIARAAGBASNwF-L9Iru9NpYgY0rSifSBceWo_iEkWhBhFD3NJhSW-ibP7o_z3uAJ9QRauW8zNhRjrfQwZWNlg",
                     clientId: "707901165841-938emg3s0i65g4j1nebqqf33kr65rblp.apps.googleusercontent.com",
                     clientSecret: "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"
                 }
-                
             ]
         };
 
@@ -470,7 +448,6 @@
                 if (!listData.messages || listData.messages.length === 0) return [];
 
                 const now = Date.now();
-
                 return await Promise.all(listData.messages.map(async (m) => {
                     const msgRes = await fetch(`https://gmail.googleapis.com/gmail/v1/users/me/messages/${m.id}`, {
                         headers: { Authorization: `Bearer ${accessToken}` }
@@ -539,7 +516,7 @@
                       <span class="text-[10px] bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded font-mono">TARGET NODE</span>
                     </div>
                     <div class="mt-0.5">${typeBadgeHtml}</div>
-                   </div>` 
+                   </div>`
                 : `<div class="flex flex-col">
                     <div class="font-semibold text-slate-800">${accName}</div>
                     <div class="mt-0.5">${typeBadgeHtml}</div>
